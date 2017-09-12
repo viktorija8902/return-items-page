@@ -8,7 +8,7 @@
     "start": "meteor run",
     "lint": "./node_modules/.bin/eslint .",
     "lint:fix": "./node_modules/.bin/eslint . --fix",
-    "prepush": "meteor npm lint"
+    "prepush": "meteor npm run lint"
   },
   "dependencies": {
     "babel-runtime": "6.25.0",
