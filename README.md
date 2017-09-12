@@ -1,6 +1,6 @@
 # Bonsai Interview Test
 
-The goal is to create the single page provided in the `/docs/` folder of this repository. This is intentionally striped down to allow for better inspection of your core skills and intuition.
+The goal is to create the single page provided in the `/docs/` folder of this repository. This is intentionally stripped down to allow for better inspection of your core skills and intuition.
 
 The components of the page contain the following:
 1. The `return page`. (/docs/return-page.png)
