@@ -1,14 +1,23 @@
 // Framework
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import { SellersItems } from './SellersItems';
 
-export const Seller = () =>
-  <div className='seller-page'>
-    <div className='seller-name'>Seller A</div>
-    <div className='items-page'>2 of 4</div>
-    <SellersItems/>
-  </div>;
+export class Seller extends React.Component {
+  render() {
+    return (
+      <div className='seller-page'>
+          <div className='seller-name'>{this.props.sellerWithItems.name}</div>
+          <div className='items-page'>2 of 4</div>
+          <SellersItems items={this.props.sellerWithItems.items}/>
+        </div>
+    );
+  }
+}
+Seller.propTypes = {
+  sellerWithItems: PropTypes.object
+};
 
 export default Seller;
