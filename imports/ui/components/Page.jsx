@@ -2,6 +2,7 @@
 
 // Framework
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import { Container } from 'reactstrap';
@@ -10,11 +11,13 @@ import { TalkToSomeoneButton } from './TalkToSomeoneButton';
 import { AllSellers } from './AllSellers';
 import { TermsAndConditions } from './TermsAndConditions';
 
-export const Page = ({ children }) =>
+//TODO render error
+//TODO write which props are required
+export const Page = ({ sellersWithItems, error }) =>
   <Container fluid className='page'>
     <PageHeader/>
     <TalkToSomeoneButton/>
-    <AllSellers/>
+    <AllSellers sellersWithItems={sellersWithItems}/>
     <TermsAndConditions/>
   </Container>;
 
