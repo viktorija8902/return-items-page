@@ -15,7 +15,7 @@ export class AllSellers extends React.Component {
                           </div>
                       );
     return (
-      <div>{allSellers}</div>
+      <div className='all-sellers-wrapper'>{allSellers}</div>
     )
   }
 }
