@@ -30,27 +30,9 @@ class ReturnsPage extends Component {
 
   render() {
     const { lastOrder, error } = this.state;
+    const sellersWithItems = lastOrder && lastOrder.merchantOrders
     return (
-      <Page>
-        <Row>
-          <Col>
-            <Alert className="mt-3">
-              I would highly recommend understanding the structure of the order
-              object first and how it should relate to the designs.
-            </Alert>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            {JSON.stringify(lastOrder)}
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            {error}
-          </Col>
-        </Row>
-      </Page>
+      <Page sellersWithItems={sellersWithItems} error={error}></Page>
     );
   }
 }

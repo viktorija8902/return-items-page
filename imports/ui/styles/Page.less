@@ -1,3 +1,108 @@
+@import "./variables.less";
 .page {
-  
+  text-align: center;
+  padding-bottom: 105px;
+  .page-header {
+    .left-arrow {
+      text-align: left;
+      font-size: 40px;
+      color: @text-black;
+    }
+    .page-number {
+      color: @text-grey;
+    }
+    .page-title {
+      color: @title-grey;
+      font-weight: 600;
+      font-size: 21px;
+      padding: 5px 0 65px 0;
+    }
+  }
+  .talk-btn {
+    border-radius: 25px;
+    border: 0;
+    height: 50px;
+    width: 200px;
+    background-color: @text-black;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    z-index: 1;
+    top: 13%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .all-sellers-wrapper {
+    background-color: @background-grey;
+    padding-top: 60px;
+    .seller-page {
+      .seller-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 20px 20px;
+        .seller-name {
+          font-weight: bold;
+        }
+        .items-number {
+          color: @item-info-grey;
+        }
+      }
+      .items {
+        .item {
+          display: flex;
+          border-width: 1px;
+          border-style: solid;
+          border-color: lightgrey; //TODO change
+          margin: 0px 10px 13px;
+          .left-box {
+            width: 40%;
+            background-color: @item-background-grey;
+          }
+          .right-box {
+            width: 60%;
+            background-color: @white;
+            padding: 16px 0;
+            row {
+              display: flex;
+              justify-content: space-between;
+              padding: 0px 20px;
+              .item-price {
+                color: @text-black;
+              }
+              .brand {
+                color: @blue;
+                padding-top: 15px;
+              }
+              .brand, .name, .item-price {
+                font-weight: bold;
+              }
+              .item-info {
+                color: @item-info-grey;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .terms-wrapper {
+    background-color: @blue;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    .terms-title {
+      color: @white;
+      font-weight: bold;
+      line-height: 3;
+    }
+    .right-arrow {
+      color: @white;
+      font-size: 30px;
+    }
+  }
 }
