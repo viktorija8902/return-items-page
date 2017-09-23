@@ -8,6 +8,8 @@ class HelpModal extends React.Component {
     }
     return (
       <div className='help-modal'>
+        <div className='modal-title'>Need a hand?</div>
+        <div className='modal-text'>Push the call button and we'll <br/> gladly put you in touch with one of <br/> our knowledgeable reps.</div>
         <button className='call-us-btn'>
           Call Us
         </button>
