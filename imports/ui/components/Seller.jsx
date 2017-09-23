@@ -9,10 +9,12 @@ export class Seller extends React.Component {
   render() {
     return (
       <div className='seller-page'>
-          <div className='seller-name'>{this.props.sellerWithItems.name}</div>
-          <div className='items-page'>2 of 4</div>
+          <div className='seller-header'>
+            <div className='seller-name'>{this.props.sellerWithItems.name}</div>
+            <div className='items-number'>2 of 4</div>
+          </div>
           <SellersItems items={this.props.sellerWithItems.items}/>
-        </div>
+      </div>
     );
   }
 }
