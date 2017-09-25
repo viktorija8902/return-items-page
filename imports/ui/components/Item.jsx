@@ -6,13 +6,6 @@ import PropTypes from 'prop-types';
 import QuantitySelection from './QuantitySelection';
 
 export class Item extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      quantityToReturn: 0,
-    };
-  }
-
   render() {
     return (
       <div className='item'>
@@ -30,7 +23,7 @@ export class Item extends React.Component {
           </row>
           <row>
             <div className='item-info name'>{this.props.item.name}</div>
-            </row>
+          </row>
           <hr/>
           <row>
             <div>Size</div>
