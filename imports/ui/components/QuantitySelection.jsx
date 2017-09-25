@@ -3,13 +3,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Drawer from 'react-motion-drawer';
 
+import ReturnQuantityRow from './ReturnQuantityRow';
+
+
 export class QuantitySelection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDrawerOpen: false
+      isDrawerOpen: false,
+      selectedQuantity: 0
     };
     this.toggleDrawer = this.toggleDrawer.bind(this);
+    this.handleQuantityChange = this.handleQuantityChange.bind(this);
   }
 
   toggleDrawer() {
@@ -18,7 +23,36 @@ export class QuantitySelection extends React.Component {
     }));
   }
 
+  handleQuantityChange(selectedQuantity) {
+    this.setState({
+      selectedQuantity: selectedQuantity
+    });
+  }
+
+  createAllChoices() {
+    let choiceNumber = 1;
+    let allChoices = [];
+    const numberOfItems = this.props.quantity;
+    while (choiceNumber <= numberOfItems) {
+      allChoices.push(choiceNumber);
+      choiceNumber++;
+    }
+    let quantityChoices = allChoices.map((choice) =>
+        <div key={choice.toString()}>
+           <ReturnQuantityRow
+              label={choice}
+              value={choice}
+              checked={this.state.selectedQuantity == choice}
+              onQuantityChange={this.handleQuantityChange}
+            />
+        </div>
+     );
+
+     return quantityChoices;
+  }
+
   render() {
+    allChoices = this.createAllChoices();
     return (
       <div className='quantity-selection'>
         <button className='quantity-selection-btn'
@@ -31,9 +65,7 @@ export class QuantitySelection extends React.Component {
             right={true}>
             <div className='left-arrow' onClick={this.toggleDrawer}>&#8592;</div>
             <ul>
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+              {allChoices}
             </ul>
             <button>Apply Changes</button>
           </Drawer>
