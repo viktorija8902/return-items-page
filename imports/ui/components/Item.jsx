@@ -2,7 +2,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Components
+import QuantitySelection from './QuantitySelection';
+
 export class Item extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemsToReturn: 0,
+    };
+  }
+
   render() {
     return (
       <div className='item'>
@@ -34,7 +44,10 @@ export class Item extends React.Component {
           <hr/>
           <row>
             <div>Return Quantity</div>
-            <div className='item-info'>{this.props.item.quantityPurchased}</div>
+            <div className='item-info'>
+              {this.state.itemsToReturn} of {this.props.item.quantityPurchased}
+              <QuantitySelection quantity={this.props.item.quantityPurchased} />
+            </div>
           </row>
         </div>
       </div>
