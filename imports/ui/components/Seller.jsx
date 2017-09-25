@@ -5,13 +5,23 @@ import PropTypes from 'prop-types';
 // Components
 import { SellersItems } from './SellersItems';
 
+
 export class Seller extends React.Component {
+  calculateItems() {
+    let purchasedOverall = 0;
+    this.props.sellerWithItems.items.forEach(function (infoAboutItem) {
+      purchasedOverall = purchasedOverall + infoAboutItem.quantityPurchased
+    });
+    return purchasedOverall;
+  }
+
   render() {
+    const purchasedFromSeller = this.calculateItems(this.props.sellerWithItems.items);
     return (
       <div className='seller-page'>
           <div className='seller-header'>
             <div className='seller-name'>{this.props.sellerWithItems.name}</div>
-            <div className='items-number'>2 of 4</div>
+            <div className='items-number'>2 of {purchasedFromSeller}</div>
           </div>
           <SellersItems items={this.props.sellerWithItems.items}/>
       </div>
