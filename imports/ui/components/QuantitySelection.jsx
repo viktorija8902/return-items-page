@@ -15,6 +15,7 @@ export class QuantitySelection extends React.Component {
     };
     this.toggleDrawer = this.toggleDrawer.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
+    this.handleApplyChangesClick = this.handleApplyChangesClick.bind(this);
   }
 
   toggleDrawer() {
@@ -27,6 +28,10 @@ export class QuantitySelection extends React.Component {
     this.setState({
       selectedQuantity: selectedQuantity
     });
+  }
+
+  handleApplyChangesClick() {
+    this.toggleDrawer();
   }
 
   createAllChoices() {
@@ -55,6 +60,7 @@ export class QuantitySelection extends React.Component {
     allChoices = this.createAllChoices();
     return (
       <div className='quantity-selection'>
+        <div>{this.state.selectedQuantity} of {this.props.quantity}</div>
         <button className='quantity-selection-btn'
           onClick={this.toggleDrawer}>
           >
@@ -67,7 +73,7 @@ export class QuantitySelection extends React.Component {
             <ul>
               {allChoices}
             </ul>
-            <button>Apply Changes</button>
+            <button onClick={this.handleApplyChangesClick}>Apply Changes</button>
           </Drawer>
         </div>
       </div>

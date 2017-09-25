@@ -9,7 +9,7 @@ export class Item extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemsToReturn: 0,
+      quantityToReturn: 0,
     };
   }
 
@@ -45,8 +45,9 @@ export class Item extends React.Component {
           <row>
             <div>Return Quantity</div>
             <div className='item-info'>
-              {this.state.itemsToReturn} of {this.props.item.quantityPurchased}
-              <QuantitySelection quantity={this.props.item.quantityPurchased} />
+              <QuantitySelection
+                quantity={this.props.item.quantityPurchased}
+              />
             </div>
           </row>
         </div>
