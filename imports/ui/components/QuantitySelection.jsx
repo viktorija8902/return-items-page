@@ -1,8 +1,10 @@
 // Framework, libraries
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addItemToReturnList } from '../actions/actions.jsx';
 import Drawer from 'react-motion-drawer';
-
+import {store} from '../../../imports/startup/client/index.js'
 import ReturnQuantityRow from './ReturnQuantityRow';
 
 
@@ -32,6 +34,11 @@ export class QuantitySelection extends React.Component {
 
   handleApplyChangesClick() {
     this.toggleDrawer();
+    store.dispatch(addItemToReturnList({
+      "sellersName": this.props.sellersName,
+      "itemName": this.props.itemName,
+      "quantityToReturn": this.state.selectedQuantity
+    }))
   }
 
   createAllChoices() {
@@ -81,4 +88,6 @@ export class QuantitySelection extends React.Component {
   }
 }
 
-export default QuantitySelection;
+QuantitySelection = connect()(QuantitySelection)
+
+export default QuantitySelection

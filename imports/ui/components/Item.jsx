@@ -39,6 +39,8 @@ export class Item extends React.Component {
             <div>Return Quantity</div>
             <div className='item-info'>
               <QuantitySelection
+                sellersName={this.props.sellersName}
+                itemName={this.props.item.name}
                 quantity={this.props.item.quantityPurchased}
               />
             </div>

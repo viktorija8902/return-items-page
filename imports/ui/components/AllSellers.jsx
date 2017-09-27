@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import { Seller } from './Seller';
+import Seller from './Seller';
 
 export class AllSellers extends React.Component {
   render() {
@@ -19,7 +19,7 @@ export class AllSellers extends React.Component {
     )
   }
 }
-Seller.propTypes = {
+AllSellers.propTypes = {
   sellersWithItems: PropTypes.array
 };
 
