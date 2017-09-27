@@ -22,7 +22,7 @@ class Seller extends React.Component {
       <div className='seller-page'>
           <div className='seller-header'>
             <div className='seller-name'>{this.props.sellerWithItems.name}</div>
-            <div className='items-number'>{this.props.itemsToReturn} of {purchasedFromSeller}</div>
+            <div className='items-number'>{this.props.itemsToReturnToSeller} of {purchasedFromSeller}</div>
           </div>
           <SellersItems sellersName={this.props.sellerWithItems.name} items={this.props.sellerWithItems.items}/>
       </div>
@@ -33,10 +33,19 @@ Seller.propTypes = {
   sellerWithItems: PropTypes.object
 };
 
-const mapStateToProps = (state, props) => {
+function calculateItemsToReturn(itemsToReturn, sellersName) {
+  const sellersItems = itemsToReturn.filter(item => item.sellersName === sellersName)
+  let itemsToReturnToSeller = 0;
+  sellersItems.forEach(function(item) {
+    itemsToReturnToSeller = itemsToReturnToSeller + parseInt(item.quantityToReturn)
+  });
+  return itemsToReturnToSeller
+}
+
+const mapStateToProps = (state, props, prevState) => {
+  const sellersName = props.sellerWithItems.name
   return {
-    // I am returning something which change just to test if store is connected
-   itemsToReturn: state.returnItemsPage.itemsToReturn.length
+   itemsToReturnToSeller: calculateItemsToReturn(state.returnItemsPage.itemsToReturn, sellersName)
   }
 }
 

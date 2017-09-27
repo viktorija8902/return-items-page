@@ -14,17 +14,31 @@ function returnItemsPage(state = initialState, action) {
   const quantityToReturn = action.itemInfo && action.itemInfo.quantityToReturn;
   switch (action.type) {
     case ADD_ITEM_TO_RETURN_LIST:
-      return {
-        ...state,
-
-        itemsToReturn: [
-          ...state.itemsToReturn,
-          {
-            sellersName: sellersName,
-            itemName: itemName,
-            quantityToReturn: quantityToReturn
-          }
-        ]
+      let existingItemInfo = state.itemsToReturn.filter(item => item.sellersName === sellersName && item.itemName === itemName)
+      if (existingItemInfo.length != 0) {
+        // update existing itemInfo
+        return {
+          ...state,
+          itemsToReturn: [
+            ...state.itemsToReturn.map(itemInfo =>
+              (itemInfo.sellersName === sellersName && itemInfo.itemName === itemName)
+                ? {...itemInfo, quantityToReturn: quantityToReturn}
+                : itemInfo
+            )]
+        }
+      } else {
+        // create new itemInfo
+        return {
+          ...state,
+          itemsToReturn: [
+            ...state.itemsToReturn,
+            {
+              sellersName: sellersName,
+              itemName: itemName,
+              quantityToReturn: quantityToReturn
+            }
+          ]
+        }
       }
     default:
       return state
