@@ -77,7 +77,9 @@ class QuantitySelection extends React.Component {
             right={true}
             width={320}
           >
-          <div className='left-arrow' onClick={this.toggleDrawer}>&#8592;</div>
+          <div className='left-arrow' onClick={this.toggleDrawer}>
+            <img src={'../images/left_arrow.png'} alt='click to select return quantity'></img>
+          </div>
           <div className='drawer-header'>Return Quantity</div>
           {allChoices}
           <hr/>
