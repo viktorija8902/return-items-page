@@ -8,7 +8,7 @@ import {store} from '../../../imports/startup/client/index.js'
 import ReturnQuantityRow from './ReturnQuantityRow';
 
 
-export class QuantitySelection extends React.Component {
+class QuantitySelection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,22 +72,20 @@ export class QuantitySelection extends React.Component {
           onClick={this.toggleDrawer}>
           >
         </button>
-        <div className='quantity-selection-drawer'>
-          <Drawer className='quantity-selection-drawer'
+        <Drawer className='quantity-selection-drawer'
             open={this.state.isDrawerOpen}
-            right={true}>
-            <div className='left-arrow' onClick={this.toggleDrawer}>&#8592;</div>
-            <ul>
-              {allChoices}
-            </ul>
-            <button onClick={this.handleApplyChangesClick}>Apply Changes</button>
-          </Drawer>
-        </div>
+            right={true}
+            width={320}
+          >
+          <div className='left-arrow' onClick={this.toggleDrawer}>&#8592;</div>
+          <div className='drawer-header'>Return Quantity</div>
+          {allChoices}
+          <hr/>
+          <button className='apply-changes-btn' onClick={this.handleApplyChangesClick}>Apply Changes</button>
+        </Drawer>
       </div>
     );
   }
 }
 
-QuantitySelection = connect()(QuantitySelection)
-
-export default QuantitySelection
+export default connect()(QuantitySelection)

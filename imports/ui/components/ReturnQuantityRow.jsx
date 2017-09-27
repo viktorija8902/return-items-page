@@ -14,14 +14,15 @@ export class ReturnQuantityRow extends React.Component {
 
   render() {
     return (
-      <div className="radio">
+      <div>
+      <hr/>
         <label>
+          {this.props.label}
           <input type="radio"
                  value={this.props.label}
                  checked={this.props.checked}
                  onClick={this.handleChange}
           />
-          {this.props.label}
         </label>
       </div>
     )
