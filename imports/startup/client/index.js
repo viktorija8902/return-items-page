@@ -3,21 +3,16 @@ import React from "react";
 import { Meteor } from "meteor/meteor";
 import { render } from "react-dom";
 
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import returnItemsApp from '../../ui/reducers/reducers.jsx'
-
-export const store = createStore(returnItemsApp, {})
-
-import {
-  addItemToReturnList
-} from '../../ui/actions/actions.jsx'
-
 // Libraries
 import "bootstrap/dist/css/bootstrap.css";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+export const store = createStore(returnItemsApp, {});
 
 // Client Imports
 import Routes from "../../ui/Routes.jsx";
+import returnItemsApp from "../../ui/reducers/reducers.jsx";
+import { addItemToReturnList } from "../../ui/actions/actions.jsx";
 
 // Actual Rendering Function
 let renderApp = () =>
