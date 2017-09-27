@@ -23,6 +23,9 @@ export class ReturnQuantityRow extends React.Component {
                  checked={this.props.checked}
                  onClick={this.handleChange}
           />
+          { this.props.checked &&
+            <img src='../../images/drawer_checkbox.png'></img>
+          }
         </label>
       </div>
     )
