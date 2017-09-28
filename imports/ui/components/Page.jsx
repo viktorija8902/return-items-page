@@ -13,7 +13,7 @@ import { TermsAndConditions } from './TermsAndConditions';
 
 //TODO render error
 //TODO write which props are required
-export const Page = ({ sellersWithItems, error }) =>
+const Page = ({ sellersWithItems, error }) =>
   <Container fluid className='page'>
     <PageHeader/>
     <TalkToSomeoneButton/>
