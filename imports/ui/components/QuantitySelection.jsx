@@ -67,7 +67,7 @@ class QuantitySelection extends React.Component {
     allChoices = this.createAllChoices();
     return (
       <div className='quantity-selection'>
-        <div>{this.state.selectedQuantity} of {this.props.quantity}</div>
+        <div>{this.props.itemsToReturnToSeller} of {this.props.quantity}</div>
         <button className='quantity-selection-btn'
           onClick={this.toggleDrawer}>
           >
@@ -90,4 +90,24 @@ class QuantitySelection extends React.Component {
   }
 }
 
-export default connect()(QuantitySelection)
+const mapStateToProps = (state, props) => {
+  const itemsToReturn = state.returnItemsPage.itemsToReturn
+  if (itemsToReturn.length === 0) {
+    return {
+     itemsToReturnToSeller: 0
+    }
+  }
+  const selectedItem = itemsToReturn.find(item =>
+    item.sellersName ===  props.sellersName &&
+    item.itemName === props.itemName
+  )
+  if (selectedItem) {
+    return {
+      itemsToReturnToSeller: selectedItem.quantityToReturn
+    }
+  }
+  return {
+    itemsToReturnToSeller: 0
+  }
+}
+export default connect(mapStateToProps)(QuantitySelection)
