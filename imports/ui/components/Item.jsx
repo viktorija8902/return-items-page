@@ -43,17 +43,17 @@ export class Item extends React.Component {
           </row>
           <hr/>
           <row>
-            <div>Size</div>
+            <div className='item-info-label'>Size</div>
             <div className='item-info'>{this.props.item.size}</div>
           </row>
           <hr/>
           <row>
-            <div>Colour</div>
+            <div className='item-info-label'>Colour</div>
             <div className='item-info'>{this.props.item.color}</div>
           </row>
           <hr/>
           <row>
-            <div>Return Quantity</div>
+            <div className='item-info-label'>Return Quantity</div>
             <div className='item-info'>
               <QuantitySelection
                 sellersName={this.props.sellersName}
