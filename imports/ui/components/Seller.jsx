@@ -1,4 +1,4 @@
-// Framework
+// Framework, libraries
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -42,7 +42,7 @@ function calculateItemsToReturn(itemsToReturn, sellersName) {
   return itemsToReturnToSeller
 }
 
-const mapStateToProps = (state, props, prevState) => {
+const mapStateToProps = (state, props) => {
   const sellersName = props.sellerWithItems.name
   return {
    itemsToReturnToSeller: calculateItemsToReturn(state.returnItemsPage.itemsToReturn, sellersName)

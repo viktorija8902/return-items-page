@@ -6,17 +6,34 @@ import PropTypes from 'prop-types';
 import QuantitySelection from './QuantitySelection';
 
 export class Item extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checkboxChecked: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      checkboxChecked: !prevState.checkboxChecked
+    }));
+  }
+
   render() {
+    let checkbox;
+    if (this.state.checkboxChecked) {
+      checkbox = <div className='checkbox'><img onClick={this.handleClick} src='../../images/checked_checkbox.png'></img></div>
+    } else {
+      checkbox = <div className='checkbox'><img onClick={this.handleClick} src='../../images/checkbox.png'></img></div>
+    }
     return (
       <div className='item'>
         <div className='left-box'></div>
         <div className='right-box'>
           <row>
             <div className='item-price'>{this.props.item.pricePerItem}</div>
-            <input
-                name="item-checked"
-                type="checkbox"
-            />
+            {checkbox}
           </row>
           <row>
             <div className='brand'>{this.props.item.brand}</div>
