@@ -22,7 +22,8 @@ class QuantitySelection extends React.Component {
 
   toggleDrawer() {
     this.setState(prevState => ({
-      isDrawerOpen: !prevState.isDrawerOpen
+      isDrawerOpen: !prevState.isDrawerOpen,
+      selectedQuantity: this.props.itemsToReturnToSeller
     }));
   }
 
