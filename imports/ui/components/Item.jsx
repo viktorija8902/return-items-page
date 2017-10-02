@@ -36,6 +36,14 @@ export class Item extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.itemsToReturnToSeller > 0) {
+      this.setState({
+        checkboxChecked: true
+      });
+    }
+  }
+
   render() {
     let checkbox;
     if (this.state.checkboxChecked) {
@@ -74,6 +82,7 @@ export class Item extends React.Component {
               <QuantitySelection
                 sellersName={this.props.sellersName}
                 itemName={this.props.item.name}
+                itemsToReturnToSeller={this.props.itemsToReturnToSeller}
                 quantity={this.props.item.quantityPurchased}
               />
             </div>
@@ -87,4 +96,24 @@ Item.propTypes = {
   item: PropTypes.object
 };
 
-export default connect()(Item);
+const mapStateToProps = (state, props) => {
+  const itemsToReturn = state.returnItemsPage.itemsToReturn
+  if (itemsToReturn.length === 0) {
+    return {
+     itemsToReturnToSeller: 0
+    }
+  }
+  const selectedItem = itemsToReturn.find(item =>
+    item.sellersName ===  props.sellersName &&
+    item.itemName === props.item.name
+  )
+  if (selectedItem) {
+    return {
+      itemsToReturnToSeller: selectedItem.quantityToReturn
+    }
+  }
+  return {
+    itemsToReturnToSeller: 0
+  }
+}
+export default connect(mapStateToProps)(Item)

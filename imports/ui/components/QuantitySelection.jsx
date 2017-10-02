@@ -92,24 +92,4 @@ class QuantitySelection extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  const itemsToReturn = state.returnItemsPage.itemsToReturn
-  if (itemsToReturn.length === 0) {
-    return {
-     itemsToReturnToSeller: 0
-    }
-  }
-  const selectedItem = itemsToReturn.find(item =>
-    item.sellersName ===  props.sellersName &&
-    item.itemName === props.itemName
-  )
-  if (selectedItem) {
-    return {
-      itemsToReturnToSeller: selectedItem.quantityToReturn
-    }
-  }
-  return {
-    itemsToReturnToSeller: 0
-  }
-}
-export default connect(mapStateToProps)(QuantitySelection)
+export default QuantitySelection
