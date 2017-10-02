@@ -67,11 +67,12 @@ class QuantitySelection extends React.Component {
     allChoices = this.createAllChoices();
     return (
       <div className='quantity-selection'>
-        <div>{this.props.itemsToReturnToSeller} of {this.props.quantity}</div>
-        <button className='quantity-selection-btn'
-          onClick={this.toggleDrawer}>
-          >
-        </button>
+        <div className='selected-quantity'>{this.props.itemsToReturnToSeller} of {this.props.quantity}</div>
+        <img className='quantity-selection-btn'
+             src='../../images/return_quantity_arrow.png'
+             onClick={this.toggleDrawer}
+             alt='Click to choose return quantity'>
+        </img>
         <Drawer className='quantity-selection-drawer'
             open={this.state.isDrawerOpen}
             right={true}
