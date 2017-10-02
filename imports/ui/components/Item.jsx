@@ -1,6 +1,9 @@
 // Framework
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addItemToReturnList } from '../actions/actions.jsx';
+import { store } from '../../../imports/startup/client/index.js';
 
 // Components
 import QuantitySelection from './QuantitySelection';
@@ -18,6 +21,27 @@ export class Item extends React.Component {
     this.setState(prevState => ({
       checkboxChecked: !prevState.checkboxChecked
     }));
+    if (!this.state.checkboxChecked) {
+      store.dispatch(addItemToReturnList({
+        "sellersName": this.props.sellersName,
+        "itemName": this.props.item.name,
+        "quantityToReturn": this.props.item.quantityPurchased
+      }))
+    } else {
+      store.dispatch(addItemToReturnList({
+        "sellersName": this.props.sellersName,
+        "itemName": this.props.item.name,
+        "quantityToReturn": 0
+      }))
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.itemsToReturnToSeller > 0) {
+      this.setState({
+        checkboxChecked: true
+      });
+    }
   }
 
   render() {
@@ -58,6 +82,7 @@ export class Item extends React.Component {
               <QuantitySelection
                 sellersName={this.props.sellersName}
                 itemName={this.props.item.name}
+                itemsToReturnToSeller={this.props.itemsToReturnToSeller}
                 quantity={this.props.item.quantityPurchased}
               />
             </div>
@@ -71,4 +96,24 @@ Item.propTypes = {
   item: PropTypes.object
 };
 
-export default Item;
+const mapStateToProps = (state, props) => {
+  const itemsToReturn = state.returnItemsPage.itemsToReturn
+  if (itemsToReturn.length === 0) {
+    return {
+     itemsToReturnToSeller: 0
+    }
+  }
+  const selectedItem = itemsToReturn.find(item =>
+    item.sellersName ===  props.sellersName &&
+    item.itemName === props.item.name
+  )
+  if (selectedItem) {
+    return {
+      itemsToReturnToSeller: selectedItem.quantityToReturn
+    }
+  }
+  return {
+    itemsToReturnToSeller: 0
+  }
+}
+export default connect(mapStateToProps)(Item)

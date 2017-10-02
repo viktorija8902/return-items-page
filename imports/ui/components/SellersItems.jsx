@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import { Item } from './Item';
+import Item from './Item';
 
 export class SellersItems extends React.Component {
   render() {
