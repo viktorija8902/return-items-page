@@ -1,6 +1,9 @@
 // Framework
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addItemToReturnList } from '../actions/actions.jsx';
+import { store } from '../../../imports/startup/client/index.js';
 
 // Components
 import QuantitySelection from './QuantitySelection';
@@ -18,6 +21,19 @@ export class Item extends React.Component {
     this.setState(prevState => ({
       checkboxChecked: !prevState.checkboxChecked
     }));
+    if (!this.state.checkboxChecked) {
+      store.dispatch(addItemToReturnList({
+        "sellersName": this.props.sellersName,
+        "itemName": this.props.item.name,
+        "quantityToReturn": this.props.item.quantityPurchased
+      }))
+    } else {
+      store.dispatch(addItemToReturnList({
+        "sellersName": this.props.sellersName,
+        "itemName": this.props.item.name,
+        "quantityToReturn": 0
+      }))
+    }
   }
 
   render() {
@@ -71,4 +87,4 @@ Item.propTypes = {
   item: PropTypes.object
 };
 
-export default Item;
+export default connect()(Item);

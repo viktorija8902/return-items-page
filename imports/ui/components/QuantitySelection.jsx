@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addItemToReturnList } from '../actions/actions.jsx';
 import Drawer from 'react-motion-drawer';
-import {store} from '../../../imports/startup/client/index.js'
+import { store } from '../../../imports/startup/client/index.js'
 import ReturnQuantityRow from './ReturnQuantityRow';
 
 
