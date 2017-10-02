@@ -32,7 +32,7 @@ export class Item extends React.Component {
         <div className='left-box'></div>
         <div className='right-box'>
           <row>
-            <div className='item-price'>{this.props.item.pricePerItem}</div>
+            <div className='item-price'>C${this.props.item.pricePerItem}</div>
             {checkbox}
           </row>
           <row>
