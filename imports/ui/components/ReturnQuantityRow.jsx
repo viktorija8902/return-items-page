@@ -13,10 +13,16 @@ export class ReturnQuantityRow extends React.Component {
   }
 
   render() {
+    let labelStyle;
+    if (this.props.checked) {
+      labelStyle = 'checked-label';
+    } else {
+      labelStyle = 'not-checked-label';
+    }
     return (
       <div>
       <hr/>
-        <label>
+        <label className={labelStyle}>
           {this.props.label}
           <input type="radio"
                  value={this.props.label}
