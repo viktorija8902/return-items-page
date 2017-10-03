@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { Meteor } from "meteor/meteor";
 
 // Components
+import { Alert } from "reactstrap";
 import Page from "../components/Page.jsx";
 
 class ReturnsPage extends Component {
@@ -29,9 +30,17 @@ class ReturnsPage extends Component {
 
   render() {
     const { lastOrder, error } = this.state;
-    const sellersWithItems = lastOrder && lastOrder.merchantOrders
+    const sellersWithItems = lastOrder && lastOrder.merchantOrders;
+    if (error) {
+      return (
+        <Alert>
+          <div>Oh no! Error!</div>
+          {error}
+        </Alert>
+      );
+    }
     return (
-        <Page sellersWithItems={sellersWithItems} error={error}></Page>
+        <Page sellersWithItems={sellersWithItems}></Page>
     );
   }
 }

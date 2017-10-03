@@ -23,7 +23,7 @@ class QuantitySelection extends React.Component {
   toggleDrawer() {
     this.setState(prevState => ({
       isDrawerOpen: !prevState.isDrawerOpen,
-      selectedQuantity: this.props.itemsToReturnToSeller
+      selectedQuantity: this.props.itemsToReturn
     }));
   }
 
@@ -68,7 +68,7 @@ class QuantitySelection extends React.Component {
     allChoices = this.createAllChoices();
     return (
       <div className='quantity-selection'>
-        <div className='selected-quantity'>{this.props.itemsToReturnToSeller} of {this.props.quantity}</div>
+        <div className='selected-quantity'>{this.props.itemsToReturn} of {this.props.quantity}</div>
         <img className='quantity-selection-btn'
              src='../../images/return_quantity_arrow.png'
              onClick={this.toggleDrawer}
@@ -91,5 +91,11 @@ class QuantitySelection extends React.Component {
     );
   }
 }
+QuantitySelection.propTypes = {
+  sellersName: PropTypes.string.isRequired,
+  itemName: PropTypes.string.isRequired,
+  itemsToReturn: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired
+};
 
 export default QuantitySelection

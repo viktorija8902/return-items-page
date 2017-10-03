@@ -26,7 +26,7 @@ class HelpModal extends React.Component {
   }
 }
 HelpModal.propTypes = {
-  show: PropTypes.bool,
+  show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired
 };
 
