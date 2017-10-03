@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { Container } from 'reactstrap';
 import { PageHeader } from './PageHeader';
 import { TalkToSomeoneButton } from './TalkToSomeoneButton';
-import { AllSellers } from './AllSellers';
+import { Sellers } from './Sellers';
 import { TermsAndConditions } from './TermsAndConditions';
 
 //TODO render error
@@ -17,7 +17,7 @@ const Page = ({ sellersWithItems, error }) =>
   <Container fluid className='page'>
     <PageHeader/>
     <TalkToSomeoneButton/>
-    <AllSellers sellersWithItems={sellersWithItems}/>
+    <Sellers sellersWithItems={sellersWithItems}/>
     <TermsAndConditions/>
   </Container>;
 

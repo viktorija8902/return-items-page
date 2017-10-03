@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export class ReturnQuantityRow extends React.Component {
+export class QuantitySelectionRow extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -37,10 +37,10 @@ export class ReturnQuantityRow extends React.Component {
     )
   }
 }
-ReturnQuantityRow.propTypes = {
+QuantitySelectionRow.propTypes = {
   label: PropTypes.number,
   checked: PropTypes.bool,
   handleChange: PropTypes.func
 };
 
-export default ReturnQuantityRow;
+export default QuantitySelectionRow;

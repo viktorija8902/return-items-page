@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // Components
 import Seller from './Seller';
 
-export class AllSellers extends React.Component {
+export class Sellers extends React.Component {
   render() {
     const sellersWithItems = this.props && this.props.sellersWithItems
     const allSellers = sellersWithItems &&
@@ -19,8 +19,8 @@ export class AllSellers extends React.Component {
     )
   }
 }
-AllSellers.propTypes = {
+Sellers.propTypes = {
   sellersWithItems: PropTypes.array
 };
 
-export default AllSellers;
+export default Sellers;
