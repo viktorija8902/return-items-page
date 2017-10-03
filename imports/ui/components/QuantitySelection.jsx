@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addItemToReturnList } from '../actions/actions.jsx';
-import Drawer from 'react-motion-drawer';
+import Drawer from 'react-motion-drawer'; // this library causes 2 warnings to appear in the console
 import { store } from '../../../imports/startup/client/index.js'
 import QuantitySelectionRow from './QuantitySelectionRow';
 
