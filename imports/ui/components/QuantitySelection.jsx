@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { addItemToReturnList } from '../actions/actions.jsx';
 import Drawer from 'react-motion-drawer';
 import { store } from '../../../imports/startup/client/index.js'
-import ReturnQuantityRow from './ReturnQuantityRow';
+import QuantitySelectionRow from './QuantitySelectionRow';
 
 
 class QuantitySelection extends React.Component {
@@ -52,7 +52,7 @@ class QuantitySelection extends React.Component {
     }
     let quantityChoices = allChoices.map((choice) =>
         <div key={choice.toString()}>
-           <ReturnQuantityRow
+           <QuantitySelectionRow
               label={choice}
               value={choice}
               checked={this.state.selectedQuantity == choice}
