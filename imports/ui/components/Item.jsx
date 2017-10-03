@@ -56,14 +56,14 @@ export class Item extends React.Component {
         <div className='left-box'></div>
         <div className='right-box'>
           <row>
-            <div className='item-price'>C${this.props.item.pricePerItem}</div>
+            <div className='item-info-label item-price'>C${this.props.item.pricePerItem}</div>
             {checkbox}
           </row>
           <row>
-            <div className='brand'>{this.props.item.brand}</div>
+            <div className='item-info-label brand'>{this.props.item.brand}</div>
           </row>
           <row>
-            <div className='item-info name'>{this.props.item.name}</div>
+            <div className='item-info-label name'>{this.props.item.name}</div>
           </row>
           <hr/>
           <row>
