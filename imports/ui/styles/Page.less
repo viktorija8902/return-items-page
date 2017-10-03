@@ -1,5 +1,5 @@
 @import "./variables.less";
-// TODO refactor css
+
 .page.container-fluid {
   padding-right: 0;
   padding-left: 0;
@@ -19,12 +19,12 @@
     }
     .page-number {
       color: @text-grey;
-      font-size: 19px;
+      font-size: @main-font-size - 3px;
     }
     .page-title {
       color: @title-grey;
-      font-weight: 500;
-      font-size: 28px;
+      font-weight: @almost-bold;
+      font-size: @title-size;
       padding: 5px 0 95px 0;
     }
   }
@@ -35,7 +35,7 @@
     width: 285px;
     background-color: @black;
     color: white;
-    font-size: 22px;
+    font-size: @main-font-size;
     position: absolute;
     z-index: 1;
     top: 255px;
@@ -48,16 +48,16 @@
     padding-top: 87px;
     .seller-page {
       .seller-header {
-        display: flex;
-        justify-content: space-between;
+        .space-between;
         padding: 21px 20px;
+        .seller-name, .items-number {
+          font-size: @main-font-size;
+        }
         .seller-name {
-          font-weight: 500;
-          font-size: 22px;
+          font-weight: @almost-bold;
         }
         .items-number {
           color: @item-info-grey;
-          font-size: 22px;
         }
       }
       .items {
@@ -76,38 +76,36 @@
             background-color: @white;
             padding: 16px 0;
             row {
-              display: flex;
-              justify-content: space-between;
+              .space-between;
               padding: 0px 30px;
+              .item-info-label, .item-info {
+                font-size: @main-font-size - 2px;
+              }
               .item-info-label {
-                font-size: 20px;
                 text-align: left;
               }
               .item-info {
                 color: @item-info-grey;
-                font-size: 20px;
                 text-align: right;
               }
               .item-price {
                 color: @black;
                 padding-top: 12px;
-                font-size: 23px;
               }
               .checkbox {
                 padding-top: 5px;
                 height: 45px;
               }
+              .brand, .name, .item-price {
+                font-weight: @almost-bold;
+                font-size: @main-font-size;
+              }
               .brand {
                 color: @text-blue;
                 padding-top: 25px;
-                font-size: 22px;
-              }
-              .brand, .name, .item-price {
-                font-weight: 500;
               }
               .item-info-label.name {
                 color: @item-info-grey;
-                font-size: 21px;
               }
             }
           }
@@ -116,19 +114,17 @@
     }
   }
   .terms-wrapper {
+    .center-with-space-between;
     background-color: @blue;
     position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 30px;
     .terms-title {
       color: @white;
       font-weight: 400;
-      font-size: 22px;
+      font-size: @main-font-size;
     }
     .right-arrow {
       height: 25px;
@@ -146,20 +142,20 @@
         }
       }
       .page-title {
-        font-size: 24px;
+        font-size: @main-font-size-mobile + 4px;
         padding-bottom: 80px;
       }
     }
     .talk-btn {
       top: 215px;
-      font-size: 20px;
+      font-size: @main-font-size-mobile;
     }
     .all-sellers-wrapper {
       .seller-page {
         .seller-header {
           padding: 10px 20px;
           .seller-name, .items-number {
-            font-size: 20px;
+            font-size: @main-font-size-mobile;
           }
         }
         .items {
@@ -171,16 +167,10 @@
               width: 100%;
               row {
                 .item-info-label, .item-info {
-                  font-size: 18px;
+                  font-size:  @main-font-size-mobile - 2px;
                 }
-                .item-price {
-                  font-size: 21px;
-                }
-                .brand {
-                  font-size: 20px;
-                }
-                .name {
-                  font-size: 19px;
+                .brand, .name, .item-price {
+                  font-size: @main-font-size-mobile;
                 }
               }
             }

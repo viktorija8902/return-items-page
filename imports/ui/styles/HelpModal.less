@@ -1,4 +1,5 @@
 @import "./variables.less";
+
 .help-modal-frame {
   position: absolute;
   z-index: 2;
@@ -7,10 +8,9 @@
   bottom: 0;
   background-color: @background-grey;
   .help-modal {
+    .horizontally-centered;
     margin-top: 40px;
     width: 500px;
-    margin-left: auto;
-    margin-right: auto;
     background-color: @white;
     border-width: 1px;
     border-style: solid;
@@ -27,15 +27,13 @@
       border-top-left-radius: inherit;
     }
     .modal-content {
-      background-color: @white;
-      margin-left: auto;
-      margin-right: auto;
+      .horizontally-centered;
       padding: 60px 15px 35px 15px;
       width: 85%;
       border: 0px;
       .modal-title {
-        font-size: 32px;
-        font-weight: 500;
+        font-size: @modal-title-size;
+        font-weight: @almost-bold;
       }
       .modal-text {
         line-height: 1.5;
@@ -44,7 +42,7 @@
         color: @item-info-grey;
       }
       .call-us-btn, .close-help-btn, .modal-text {
-        font-size: 22px;
+        font-size: @main-font-size;
       }
       .call-us-btn, .close-help-btn  {
         width: 340px;
@@ -75,10 +73,10 @@
       .modal-content {
         padding: 40px 5px 35px 5px;
         .modal-title {
-          font-size: 23px;
+          font-size: @modal-title-size-mobile;
         }
         .modal-text, .call-us-btn, .close-help-btn {
-          font-size: 17px;
+          font-size: @main-font-size-mobile - 3px;
         }
         .call-us-btn, .close-help-btn  {
           width: 85%;
