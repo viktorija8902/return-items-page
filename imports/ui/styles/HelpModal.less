@@ -1,4 +1,11 @@
 @import "./variables.less";
+
+// properties
+.horizontally-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .help-modal-frame {
   position: absolute;
   z-index: 2;
@@ -7,10 +14,9 @@
   bottom: 0;
   background-color: @background-grey;
   .help-modal {
+    .horizontally-centered;
     margin-top: 40px;
     width: 500px;
-    margin-left: auto;
-    margin-right: auto;
     background-color: @white;
     border-width: 1px;
     border-style: solid;
@@ -27,9 +33,7 @@
       border-top-left-radius: inherit;
     }
     .modal-content {
-      background-color: @white;
-      margin-left: auto;
-      margin-right: auto;
+      .horizontally-centered;
       padding: 60px 15px 35px 15px;
       width: 85%;
       border: 0px;
