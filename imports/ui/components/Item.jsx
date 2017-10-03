@@ -93,9 +93,9 @@ export class Item extends React.Component {
   }
 }
 Item.propTypes = {
-  item: PropTypes.object,
-  sellersName: PropTypes.string,
-  itemsToReturn: PropTypes.number // from the store
+  item: PropTypes.object.isRequired,
+  sellersName: PropTypes.string.isRequired,
+  itemsToReturn: PropTypes.number.isRequired // from the store
 };
 
 const mapStateToProps = (state, props) => {

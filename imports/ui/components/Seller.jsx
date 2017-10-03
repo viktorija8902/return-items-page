@@ -30,8 +30,8 @@ class Seller extends React.Component {
   }
 }
 Seller.propTypes = {
-  sellerWithItems: PropTypes.object,
-  overallItemsToReturn: PropTypes.number // from the store
+  sellerWithItems: PropTypes.object.isRequired,
+  overallItemsToReturn: PropTypes.number.isRequired // from the store
 };
 
 function calculateItemsToReturn(itemsToReturn, sellersName) {

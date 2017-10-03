@@ -92,10 +92,10 @@ class QuantitySelection extends React.Component {
   }
 }
 QuantitySelection.propTypes = {
-  sellersName: PropTypes.string,
-  itemName: PropTypes.string,
-  itemsToReturn: PropTypes.number,
-  quantity: PropTypes.number
+  sellersName: PropTypes.string.isRequired,
+  itemName: PropTypes.string.isRequired,
+  itemsToReturn: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired
 };
 
 export default QuantitySelection

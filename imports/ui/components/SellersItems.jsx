@@ -20,8 +20,8 @@ export class SellersItems extends React.Component {
   }
 }
 SellersItems.propTypes = {
-  items: PropTypes.array,
-  sellersName: PropTypes.string
+  items: PropTypes.array.isRequired,
+  sellersName: PropTypes.string.isRequired
 };
 
 export default SellersItems;
