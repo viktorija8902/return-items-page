@@ -37,7 +37,7 @@ export class Item extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.itemsToReturnToSeller > 0) {
+    if (nextProps.itemsToReturn > 0) {
       this.setState({
         checkboxChecked: true
       });
@@ -82,7 +82,7 @@ export class Item extends React.Component {
               <QuantitySelection
                 sellersName={this.props.sellersName}
                 itemName={this.props.item.name}
-                itemsToReturnToSeller={this.props.itemsToReturnToSeller}
+                itemsToReturn={this.props.itemsToReturn}
                 quantity={this.props.item.quantityPurchased}
               />
             </div>
@@ -93,14 +93,16 @@ export class Item extends React.Component {
   }
 }
 Item.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object,
+  sellersName: PropTypes.string,
+  itemsToReturn: PropTypes.number // from the store
 };
 
 const mapStateToProps = (state, props) => {
   const itemsToReturn = state.returnItemsPage.itemsToReturn
   if (itemsToReturn.length === 0) {
     return {
-     itemsToReturnToSeller: 0
+     itemsToReturn: 0
     }
   }
   const selectedItem = itemsToReturn.find(item =>
@@ -109,11 +111,11 @@ const mapStateToProps = (state, props) => {
   )
   if (selectedItem) {
     return {
-      itemsToReturnToSeller: selectedItem.quantityToReturn
+      itemsToReturn: parseInt(selectedItem.quantityToReturn)
     }
   }
   return {
-    itemsToReturnToSeller: 0
+    itemsToReturn: 0
   }
 }
 export default connect(mapStateToProps)(Item)

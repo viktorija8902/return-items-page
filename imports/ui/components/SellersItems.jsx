@@ -7,10 +7,10 @@ import Item from './Item';
 
 export class SellersItems extends React.Component {
   render() {
-    const items = this.props && this.props.items;
-    const sellersName = this.props && this.props.sellersName;
-    const allItems = items && items.map((item) =>
-                        <div key={item.name.toString()}>
+    const items = this.props.items;
+    const sellersName = this.props.sellersName;
+    const allItems = items.map((item) =>
+                        <div key={item.name}>
                           <Item sellersName={sellersName} item={item} />
                         </div>
                       );

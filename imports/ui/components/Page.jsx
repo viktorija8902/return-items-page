@@ -20,5 +20,9 @@ const Page = ({ sellersWithItems, error }) =>
     <Sellers sellersWithItems={sellersWithItems}/>
     <TermsAndConditions/>
   </Container>;
+Page.propTypes = {
+  sellersWithItems: PropTypes.array,
+  error: PropTypes.string
+};
 
 export default Page;

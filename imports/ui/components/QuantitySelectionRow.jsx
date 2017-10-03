@@ -40,7 +40,7 @@ export class QuantitySelectionRow extends React.Component {
 QuantitySelectionRow.propTypes = {
   label: PropTypes.number,
   checked: PropTypes.bool,
-  handleChange: PropTypes.func
+  onQuantityChange: PropTypes.func
 };
 
 export default QuantitySelectionRow;

@@ -22,7 +22,7 @@ class Seller extends React.Component {
       <div className='seller-page'>
           <div className='seller-header'>
             <div className='seller-name'>{this.props.sellerWithItems.name}</div>
-            <div className='items-number'>{this.props.itemsToReturnToSeller} of {purchasedFromSeller}</div>
+            <div className='items-number'>{this.props.overallItemsToReturn} of {purchasedFromSeller}</div>
           </div>
           <SellersItems sellersName={this.props.sellerWithItems.name} items={this.props.sellerWithItems.items}/>
       </div>
@@ -30,22 +30,23 @@ class Seller extends React.Component {
   }
 }
 Seller.propTypes = {
-  sellerWithItems: PropTypes.object
+  sellerWithItems: PropTypes.object,
+  overallItemsToReturn: PropTypes.number // from the store
 };
 
 function calculateItemsToReturn(itemsToReturn, sellersName) {
   const sellersItems = itemsToReturn.filter(item => item.sellersName === sellersName)
-  let itemsToReturnToSeller = 0;
+  let overallItemsToReturn = 0;
   sellersItems.forEach(function(item) {
-    itemsToReturnToSeller = itemsToReturnToSeller + parseInt(item.quantityToReturn)
+    overallItemsToReturn = overallItemsToReturn + parseInt(item.quantityToReturn)
   });
-  return itemsToReturnToSeller
+  return overallItemsToReturn
 }
 
 const mapStateToProps = (state, props) => {
   const sellersName = props.sellerWithItems.name
   return {
-   itemsToReturnToSeller: calculateItemsToReturn(state.returnItemsPage.itemsToReturn, sellersName)
+   overallItemsToReturn: calculateItemsToReturn(state.returnItemsPage.itemsToReturn, sellersName)
   }
 }
 
