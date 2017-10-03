@@ -79,6 +79,15 @@
               display: flex;
               justify-content: space-between;
               padding: 0px 30px;
+              .item-info-label {
+                font-size: 20px;
+                text-align: left;
+              }
+              .item-info {
+                color: @item-info-grey;
+                font-size: 20px;
+                text-align: right;
+              }
               .item-price {
                 color: @black;
                 padding-top: 12px;
@@ -96,12 +105,9 @@
               .brand, .name, .item-price {
                 font-weight: 500;
               }
-              .item-info-label {
-                font-size: 20px;
-              }
-              .item-info {
+              .item-info-label.name {
                 color: @item-info-grey;
-                font-size: 20px;
+                font-size: 21px;
               }
             }
           }
@@ -126,6 +132,61 @@
     }
     .right-arrow {
       height: 25px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    .page-header {
+      .left-arrow {
+        padding-bottom: 20px;
+        img {
+          height: 20px;
+        }
+      }
+      .page-title {
+        font-size: 24px;
+        padding-bottom: 80px;
+      }
+    }
+    .talk-btn {
+      top: 215px;
+      font-size: 20px;
+    }
+    .all-sellers-wrapper {
+      .seller-page {
+        .seller-header {
+          padding: 10px 20px;
+          .seller-name, .items-number {
+            font-size: 20px;
+          }
+        }
+        .items {
+          .item {
+            .left-box {
+              width: 0%;
+            }
+            .right-box {
+              width: 100%;
+              row {
+                .item-info-label, .item-info {
+                  font-size: 18px;
+                }
+                .item-price {
+                  font-size: 21px;
+                }
+                .brand {
+                  font-size: 20px;
+                }
+                .name {
+                  font-size: 19px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
