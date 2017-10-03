@@ -23,7 +23,7 @@
     }
     .page-title {
       color: @title-grey;
-      font-weight: 500;
+      font-weight: @almost-bold;
       font-size: 28px;
       padding: 5px 0 95px 0;
     }
@@ -48,11 +48,10 @@
     padding-top: 87px;
     .seller-page {
       .seller-header {
-        display: flex;
-        justify-content: space-between;
+        .space-between;
         padding: 21px 20px;
         .seller-name {
-          font-weight: 500;
+          font-weight: @almost-bold;
           font-size: 22px;
         }
         .items-number {
@@ -76,16 +75,16 @@
             background-color: @white;
             padding: 16px 0;
             row {
-              display: flex;
-              justify-content: space-between;
+              .space-between;
               padding: 0px 30px;
-              .item-info-label {
+              .item-info-label, .item-info {
                 font-size: 20px;
+              }
+              .item-info-label {
                 text-align: left;
               }
               .item-info {
                 color: @item-info-grey;
-                font-size: 20px;
                 text-align: right;
               }
               .item-price {
@@ -103,7 +102,7 @@
                 font-size: 22px;
               }
               .brand, .name, .item-price {
-                font-weight: 500;
+                font-weight: @almost-bold;
               }
               .item-info-label.name {
                 color: @item-info-grey;
@@ -116,14 +115,12 @@
     }
   }
   .terms-wrapper {
+    .center-with-space-between;
     background-color: @blue;
     position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 30px;
     .terms-title {
       color: @white;
