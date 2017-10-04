@@ -51,14 +51,13 @@ class QuantitySelection extends React.Component {
       choiceNumber++;
     }
     let quantityChoices = allChoices.map((choice) =>
-        <div key={choice.toString()}>
-           <QuantitySelectionRow
-              label={choice}
-              value={choice}
-              checked={this.state.selectedQuantity == choice}
-              onQuantityChange={this.handleQuantityChange}
-            />
-        </div>
+         <QuantitySelectionRow
+            key={choice.toString()}
+            label={choice}
+            value={choice}
+            checked={this.state.selectedQuantity == choice}
+            onQuantityChange={this.handleQuantityChange}
+          />
      );
 
      return quantityChoices;

@@ -3,6 +3,7 @@
 .page.container-fluid {
   padding-right: 0;
   padding-left: 0;
+  background-color: @background-grey;
 }
 .page {
   position: relative;
@@ -10,9 +11,11 @@
   padding-bottom: 120px;
   font-family: unset;
   .page-header {
+    background-color: @white;
     .left-arrow {
       text-align: left;
       padding: 35px 25px 40px 25px;
+      cursor: pointer;
       img {
         height: 28px;
       }
@@ -42,9 +45,9 @@
     left: 0;
     right: 0;
     margin: 0 auto;
+    cursor: pointer;
   }
   .all-sellers-wrapper {
-    background-color: @background-grey;
     padding-top: 87px;
     .seller-page {
       .seller-header {
@@ -65,7 +68,8 @@
           display: flex;
           border-width: 1px;
           border-style: solid;
-          border-color: lightgrey; //TODO change
+          border-color: @border-color;
+          box-shadow: 3px 3px 5px @shadow-color;
           margin: 0px 10px 13px;
           .left-box {
             width: 40%;
@@ -95,6 +99,7 @@
               .checkbox {
                 padding-top: 5px;
                 height: 45px;
+                cursor: pointer;
               }
               .brand, .name, .item-price {
                 font-weight: @almost-bold;
@@ -128,6 +133,7 @@
     }
     .right-arrow {
       height: 25px;
+      cursor: pointer;
     }
   }
 }
