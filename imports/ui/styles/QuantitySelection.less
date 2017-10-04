@@ -10,11 +10,18 @@
   .quantity-selection-btn {
     padding-left: 20px;
     vertical-align: baseline;
+    cursor: pointer;
   }
 }
 .quantity-selection-drawer {
   position: relative;
   background-color: @white;
+  .left-arrow, .drawer-header, label {
+    padding-left: @drawer-padding;
+  }
+  .left-arrow, label, .apply-changes-btn {
+    cursor: pointer;
+  }
   .left-arrow, .drawer-header {
     text-align: left;
   }
@@ -57,8 +64,5 @@
     border: 0;
     background-color: @blue;
     color: @white;
-  }
-  .left-arrow, .drawer-header, label {
-    padding-left: @drawer-padding;
   }
 }
